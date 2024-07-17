@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_hospital_commands_form" model="ir.ui.view">
+        <field name="name">hospital.commands.form</field>
+        <field name="model">hospital.commands</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="Cammand0" string="[0,0]" type="object"/>
+                    <button name="Cammand1" string="[1,ID]" type="object"/>
+                    <button name="Cammand2" string="[2,ID]" type="object"/>
+                    <button name="Cammand3" string="[3,ID]" type="object"/>
+                    <button name="Cammand4" string="[4,ID]" type="object"/>
+                    <button name="Cammand5" string="[5]" type="object"/>
+                    <button name="Cammand6" string="[6,ID]" type="object"/>
+
+                </header>
+
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="test_ids"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_hospital_command_tree" model="ir.ui.view">
+        <field name="name">hospital.commands.tree</field>
+        <field name="model">hospital.commands</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="address"/>
+                <field name="test_ids"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="action_hospital_commands" model="ir.actions.act_window">
+        <field name="name">commands</field>
+        <field name="res_model">hospital.commands</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

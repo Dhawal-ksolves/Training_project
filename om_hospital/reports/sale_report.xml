@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Template -->
+        <template id="report_sale_order_document_inherit" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//div[@class='page']/div[4]" position="after">
+                <h2>Custom Sale Order</h2>
+                <t t-foreach="docs" t-as="o">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.duplicate_line_ids" t-as="line">
+                                <tr>
+                                    <td><span t-field="line.product_id.name"/></td>
+                                    <td><span t-field="line.name"/></td>
+                                    <td><span t-field="line.quantity"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </xpath>
+        </template>
+
+        <!-- Report Action -->
+        <report
+            id="sale_qweb_id"
+            model="new.update"
+            report_type="qweb-pdf"
+            string="Print Data"
+            name="om_hospital.report_sale_order_document_inherit"
+            file="om_hospital.report_sale_order_document_inherit"
+            attachment_use="False"
+        />
+    </data>
+</odoo>
+
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<odoo>-->
+<!--    <data>-->
+<!--        &lt;!&ndash; QWeb Template &ndash;&gt;-->
+<!--&lt;!&ndash;        <template id="sale_report_qweb" name="Sale Order QWeb Template">&ndash;&gt;-->
+<!--        <template id="report_sale_order_document_inherit" inherit_id="sale.report_saleorder_document">-->
+<!--            <xpath expr="//div[@class='page']/div[4]" position="after">-->
+<!--                <h2>custom sale order</h2>-->
+<!--                    <t t-foreach="docs" t-as="o">-->
+<!--                                <t t-foreach="o.duplicate_line_ids" t-as="line">-->
+<!--                                    <p>-->
+<!--                                        <strong>Product Name:</strong>-->
+<!--                                        <span t-field="line.product_id.name"/>-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>Name:</strong>-->
+<!--                                        <span t-field="line.name"/>-->
+<!--                                    </p>-->
+<!--                                    <p>-->
+<!--                                        <strong>Quantity:</strong>-->
+<!--                                        <span t-field="line.quantity"/>-->
+<!--                                    </p>-->
+<!--                                </t>-->
+<!--                </t>-->
+<!--            </xpath>-->
+<!--        </template>-->
+
+<!--        &lt;!&ndash; Report Action &ndash;&gt;-->
+<!--        <report-->
+<!--            id="sale_qweb_id"-->
+<!--            model="new.update"-->
+<!--            report_type="qweb-pdf"-->
+<!--            string="Print  Data"-->
+<!--            name="om_hospital.report_sale_order_document_inherit"-->
+<!--            file="om_hospital.report_sale_order_document_inherit"-->
+<!--            attachment_use="False"-->
+<!--        />-->
+<!--    </data>-->
+<!--</odoo>-->

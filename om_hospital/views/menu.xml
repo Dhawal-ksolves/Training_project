@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id = "menu_hospital_root"
+              name="Hospital"
+              sequence="5"/>
+    <menuitem id = "menu_hospital_operations"
+              name="Patient"
+              action="action_hospital_patient"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+    <menuitem id = "menu_hospital_doctor"
+              name="DOCTOR"
+              action="action_hospital_doctor"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+    <menuitem id = "menu_hospital_bill"
+              name="BILL"
+              groups="group_hospital_patient"
+              action="action_hospital_bill"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+    <menuitem id = "menu_hospital_commands"
+              name="COMMANDS"
+              groups="group_hospital_patient"
+              action="action_hospital_commands"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+    <menuitem id = "menu_hospital_table"
+              name="TABLE"
+              groups="group_hospital_patient"
+              action="action_hospital_table"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+    <menuitem id="menu_hr_teacher_root"
+              name="Teacher"
+              parent="hr.menu_hr_root"
+              sequence="10"/>
+
+    <menuitem id = "menu_hr_teacher"
+              name="Teachers"
+              action="action_hospital_Teachers"
+              parent = "menu_hospital_root"
+              sequence="10"/>
+
+    <menuitem id="menu_school_class"
+              name="Classes"
+              parent="menu_hospital_root"
+              action="action_school_class"
+              sequence="10"/>
+
+</odoo>

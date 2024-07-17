@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+om_hospital.access_hospital_patient,access_hospital_patient,om_hospital.model_hospital_patient,base.group_user,1,1,1,1
+om_hospital.access_hospital_medicine,access_hospital_medicine,om_hospital.model_hospital_medicine,base.group_user,1,1,1,1
+om_hospital.access_hospital_appointment,access_hospital_appointment,om_hospital.model_hospital_appointment,base.group_user,1,1,1,1
+om_hospital.access_hospital_doctor,access_hospital_doctor,om_hospital.model_hospital_doctor,base.group_user,1,1,1,1
+om_hospital.access_hospital_bill,access_hospital_bill,om_hospital.model_hospital_bill,base.group_user,1,1,1,1
+
+om_hospital.access_hospital_patient_wizard,access_hospital_patient_wizard,om_hospital.model_hospital_patient_wizard,base.group_user,1,1,1,1
+om_hospital.access_hospital_commands,access_hospital_commands,om_hospital.model_hospital_commands,base.group_user,1,1,1,1
+om_hospital.access_hospital_medicine1,access_hospital_medicine1,om_hospital.model_hospital_medicine1,base.group_user,1,1,1,1
+om_hospital.access_hospital_table,access_hospital_table,om_hospital.model_hospital_table,base.group_user,1,1,1,1
+om_hospital.access_inherit_wizard,access_hospital_inherit_wizard,om_hospital.model_inherit_wizard,base.group_user,1,1,1,1
+
+om_hospital.access_product_details,access_product_details,om_hospital.model_product_details,base.group_user,1,1,1,1
+om_hospital.access_new_update,access_new_update,om_hospital.model_new_update,base.group_user,1,1,1,1
+
+om_hospital.access_custom_invoice_lines,access_custom_invoice_lines,om_hospital.model_custom_invoice_lines,base.group_user,1,1,1,1

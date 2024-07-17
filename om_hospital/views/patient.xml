@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_patient_search" model="ir.ui.view">
+            <field name="name">hospital.patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search string="Patient Search">
+<!--                <field name="name"/>-->
+<!--                <field name="department_id"/>-->
+                <field name="discharge"/>
+<!--                <field name="gender"/>-->
+                <separator/>
+                <filter string="Discharged" name="discharged" domain="[('discharge', '=', True)]"/>
+<!--                <filter string="Not Discharged" name="not_discharged" domain="[('discharge', '=', False)]"/>-->
+                <group expand="1" string="Group By">
+                    <filter string="Gender" name="group_by_gender" context="{'group_by':'gender'}"/>
+                </group>
+            </search>
+<!--                <search string="Plan">-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="department_id"/>-->
+<!--                    <separator/>-->
+<!--&lt;!&ndash;                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>&ndash;&gt;-->
+<!--                </search>-->
+            </field>
+        </record>
+
+
+
+
+
+
+    <record id="view_hospital_patient_kanban" model="ir.ui.view">
+            <field name="name">hospital.patient.kanban</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="age"/>
+                                    </li>
+                                    <li>
+                                        <field name="gender"/>
+                                    </li>
+                                </ul>
+
+
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+<!--                    <button name="action_discharge" string="Check Discharge" type="object" class="oe_highlight" attrs="{'invisible': [('discharge', '=', True)]}"/>-->
+                    <button name="%(action_hospital_bill)d" string="Patient Bill" type="action" class="hospital.patient" />
+                    <button name="%(om_hospital.action_hospital_patient_wizard)d" string="Patient Wizard" type="action" class="hospital.patient" />
+                    <button name="action_discharge" string="Discharge" type="object" class="hospital.patient"
+                        attrs="{'invisible': [('state', '=', 'discharge')]}"/>
+                    <button name="action_admit" string="Admit" type="object" class="hospital.patient"
+                        attrs="{'invisible': [('state', '=', 'admit')]}"/>
+<!--                    <button name="action_admit" string="Admit" type="object" class="hospital.patient"-->
+<!--                        attrs="{'invisible': [('state', '=', 'admit')]}"/>-->
+                    <field name="state" widget="statusbar" statusbar_visible="admit,discharge"/>
+                    <button name="action_admit_to_discharge" string="Admit to Discharge" type="object" class="hospital.patient"
+                        attrs="{'invisible': [('state', '=', 'discharge')]}"/>
+
+
+
+
+
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="hospital.patient" type="object" string="Show Bills" name="show_bills"
+                icon="fa-pencil-square-o">
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="name" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="discharge" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="age" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="is_child" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="notes" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="gender" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="doctor_id" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="speciality" attrs="{'readonly': [('discharge', '=', True)]}"/>
+                        <field name="user_id" attrs="{'readonly': [('discharge', '=', True)]}"/>
+<!--                        <field name="user_name"/>-->
+<!--                        <field name="medicine_id" attrs="{'readonly': [('discharge', '=', True)]}"/>-->
+<!--                        <field name="country_id" attrs="{'readonly': [('discharge', '=', True)]}"/>-->
+                    </group>
+                    <notebook>
+                        <page string ='medicine'>
+                            <field name="medicine_id" attrs="{'readonly': [('discharge', '=', True)]}">
+                                <tree name="medicine_id" editable="top" >
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                </tree>
+                                <form name="medicine_id">
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="product_id"/>
+                                    </group>
+                                </form>
+
+                            </field>
+                        </page>
+                        <page string ='country'>
+                            <field name="country_id" attrs="{'readonly': [('discharge', '=', True)]}">
+                                <tree name="country_id">
+                                    <field name="name"/>
+<!--                                    <field name="product_id"/>-->
+                                </tree>
+                                <form name="country_id">
+                                    <group>
+                                        <field name="name"/>
+<!--                                        <field name="product_id"/>-->
+                                    </group>
+
+
+                                </form>
+
+                            </field>
+
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_hospital_patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="discharge"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="doctor_id"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+        <field name="context">{}</field>
+    </record>
+
+
+</odoo>
+  <!--    <menuitem id="menu_patients"-->
+    <!--              name="patients"-->
+    <!--              parent="menu_hospital_operations"-->
+    <!--              action="action_hospital_patient"-->
+    <!--              sequence="10"/>-->

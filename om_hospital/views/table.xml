@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="view_hospital_table_form" model="ir.ui.view">
+        <field name="name">hospital.table.form</field>
+        <field name="model">hospital.table</field>
+        <field name="arch" type="xml">
+            <form>
+
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="address"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_hospital_table_tree" model="ir.ui.view">
+        <field name="name">hospital.table.tree</field>
+        <field name="model">hospital.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="address"/>
+
+            </tree>
+        </field>
+    </record>
+    <record id="action_hospital_table" model="ir.actions.act_window">
+        <field name="name">table</field>
+        <field name="res_model">hospital.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

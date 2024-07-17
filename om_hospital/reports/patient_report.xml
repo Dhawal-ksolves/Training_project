@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Template -->
+        <template id="patient_report_qweb" name="Patient Report QWeb Template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Patient Report</h2>
+                            <p><strong>Name:</strong> <span t-field="o.name"/></p>
+                            <p><strong>Age:</strong> <span t-field="o.age"/></p>
+                            <p><strong>Gender:</strong> <span t-field="o.gender"/></p>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>Medicine</th>
+                                        <th>Medicine Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.medicine_id" t-as="medicine">
+                                        <tr>
+                                            <td><span t-field="medicine.name"/></td>
+                                            <td><span t-field="medicine.product_id"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- Report Action -->
+        <report
+            id="report_qweb_id"
+            model="hospital.patient"
+            report_type="qweb-pdf"
+            string="Print Patient Data"
+            name="om_hospital.patient_report_qweb"
+            file="om_hospital.patient_report_qweb"
+            attachment_use="False"
+        />
+    </data>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<odoo>-->
+<!--    <data>-->
+<!--        &lt;!&ndash; QWeb Template &ndash;&gt;-->
+<!--        <template id="patient_report_qweb" name="Patient Report QWeb Template">-->
+<!--            <t t-call="web.html_container">-->
+<!--                <t t-foreach="docs" t-as="o">-->
+<!--                    <t t-call="web.external_layout">-->
+<!--                        <div class="page">-->
+<!--                            <h2>Patient Report</h2>-->
+<!--                            &lt;!&ndash; Add your content here &ndash;&gt;-->
+<!--                            <p><strong>Name:</strong> <span t-field="o.name"/></p>-->
+<!--                            <p><strong>Age:</strong> <span t-field="o.age"/></p>-->
+<!--                            <p><strong>Gender:</strong> <span t-field="o.gender"/></p>-->
+<!--                            <p><strong>Medicine:</strong> <span t-field="o.medicine_id.name"/></p>-->
+<!--                            <p><strong>Medicine_name:</strong> <span t-field="o.medicine_id.product_id"/></p>-->
+<!--&lt;!&ndash;                            <p><strong>Medicine:</strong> <span t-field="o.medicine_id.code"/></p>&ndash;&gt;-->
+<!--                        </div>-->
+<!--                    </t>-->
+<!--                </t>-->
+<!--            </t>-->
+<!--        </template>-->
+
+<!--        &lt;!&ndash; Report Action &ndash;&gt;-->
+<!--        <report-->
+<!--            id="report_qweb_id"-->
+<!--            model="hospital.patient"-->
+<!--            report_type="qweb-pdf"-->
+<!--            string="Print Patient Data"-->
+<!--            name="om_hospital.patient_report_qweb"-->
+<!--            file="om_hospital.patient_report_qweb"-->
+<!--            attachment_use="False"-->
+<!--        />-->
+<!--    </data>-->
+<!--</odoo>-->

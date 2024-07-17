@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_patient_wizard_form" model="ir.ui.view">
+        <field name="name">hospital.patient.wizard.form</field>
+        <field name="model">hospital.patient.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient_id" invisible="1"/>
+                        <field name="name" readonly="1"/>
+                        <field name="discharge"/>
+                        <field name="age"/>
+                        <field name="is_child"/>
+                        <field name="notes"/>
+                        <field name="gender"/>
+                        <field name="doctor_id"/>
+                        <field name="speciality" readonly="1"/>
+                        <field name="medicine_id">
+                        <tree name="medicine_id" editable="top" create="0">
+                                    <field name="name"/>
+                                    <field name="product_id"/>
+                                </tree>
+                                <form name="medicine_id">
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="product_id"/>
+                                    </group>
+                                </form>
+                        </field>
+                        <field name="country_id"/>
+                    </group>
+                    <footer>
+                        <button name="show_bills" type="object" string="Done" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_hospital_patient_wizard" model="ir.actions.act_window">
+        <field name="name">Patient_Wizard</field>
+        <field name="res_model">hospital.patient.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="view_id" ref="om_hospital.view_patient_wizard_form"/>
+        <field name="context">{'active_id': active_id}</field>
+    </record>
+</odoo>
