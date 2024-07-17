@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_device_model_form" model="ir.ui.view">
+        <field name="name">device.model.form</field>
+        <field name="model">device.model</field>
+        <field name="arch" type="xml">
+            <form string="Device Model">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="device_type_id"/>
+                        <field name="device_brand_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_device_model_tree" model="ir.ui.view">
+        <field name="name">device.model.tree</field>
+        <field name="model">device.model</field>
+        <field name="arch" type="xml">
+            <tree string="Device Models">
+                <field name="name"/>
+                <field name="device_type_id"/>
+                <field name="device_brand_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_device_model" model="ir.actions.act_window">
+        <field name="name">device model</field>
+        <field name="res_model">device.model</field>
+        <field name="view_mode">form,tree</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

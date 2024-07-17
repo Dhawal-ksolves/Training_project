@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_device_assignment_form" model="ir.ui.view">
+        <field name="name">device.assignment.form</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Device assignment">
+                <sheet>
+                    <group>
+                        <field name="name_code"/>
+                        <field name="device_id"/>
+<!--                        <field name="employee_id"/>-->
+                        <field name="date_start"/>
+                        <field name="date_expire"/>
+<!--                        <field name="state"/>-->
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_device_assignment_tree" model="ir.ui.view">
+        <field name="name">device.assignment.tree</field>
+        <field name="model">device.assignment</field>
+        <field name="arch" type="xml">
+            <tree string="Device assignment">
+                <field name="name_code"/>
+                <field name="device_id"/>
+<!--                <field name="employee_id"/>-->
+                <field name="date_start"/>
+                <field name="date_expire"/>
+<!--                <field name="state"/>-->
+            </tree>
+        </field>
+    </record>
+    <record id="action_device_assignment" model="ir.actions.act_window">
+        <field name="name">device assignment</field>
+        <field name="res_model">device.assignment</field>
+        <field name="view_mode">form,tree</field>
+        <field name="context">{}</field>
+    </record>
+</odoo>

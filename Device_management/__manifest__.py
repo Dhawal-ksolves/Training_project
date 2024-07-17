@@ -1,0 +1,25 @@
+{
+    'name': 'Device Management',
+    'version': '1.0',
+    'summary': 'Manage devices, brands, models, attributes, assignments, and employee associations',
+    'category': 'Tools',
+    'author': 'Your Name',
+    'website': 'https://www.example.com',
+    'depends': ['base', 'hr'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/device_type_views.xml',
+        'views/device_brand_views.xml',
+        'views/device_model_views.xml',
+        'views/device_attribute_views.xml',
+        'views/device_device_views.xml',
+        'views/device_attribute_assignment_views.xml',
+        # 'views/hr_employee_views.xml',
+        'views/menu_views.xml',
+        # 'views/device_assignment.xml'
+    ],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

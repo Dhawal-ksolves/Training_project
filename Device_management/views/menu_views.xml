@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <menuitem id="menu_device_management"
+                  name="Device Management"
+                  sequence="20"/>
+        <menuitem id="menu_device_types"
+                  name="Device Types"
+                  parent="menu_device_management"
+                  action="action_device_type"/>
+        <menuitem id="menu_device_brands"
+                  name="Device Brands"
+                  parent="menu_device_management"
+                  action="action_device_brand"/>
+        <menuitem id="menu_device_models"
+                  name="Device Models"
+                  parent="menu_device_management"
+                  action="action_device_model"/>
+        <menuitem id="menu_device_attributes"
+                  name="Device Attributes"
+                  parent="menu_device_management"
+                  action="action_device_attribute"/>
+        <menuitem id="menu_devices"
+                  name="Devices"
+                  parent="menu_device_management"
+                  action="action_device_device"/>
+<!--        <menuitem id="menu_devices_assignment"-->
+<!--                  name="Device Assignment"-->
+<!--                  parent="menu_device_management"-->
+<!--                  action="action_device_assignment"/>-->
+        <menuitem id="menu_device_attribute_assignments"
+                  name="Device Attribute Assignments"
+                  parent="menu_device_management"
+                  action="action_device_attribute_assignment"/>
+<!--        <menuitem id="menu_hr_employees" name="Employees" parent="menu_device_management" action="action_hr_employee"/>-->
+    </data>
+</odoo>
